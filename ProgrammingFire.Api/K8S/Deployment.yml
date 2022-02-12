@@ -1,0 +1,20 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minimal-api-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: minimal-api
+  template:
+    metadata:
+      labels:
+        app: minimal-api
+    spec:
+      containers:
+        - name: minimal-api
+          image: programmingfire/minimal-api:1.0.1
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
